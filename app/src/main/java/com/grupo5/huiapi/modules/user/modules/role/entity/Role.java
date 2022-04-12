@@ -19,4 +19,28 @@ public class Role {
     public Role(String type) {
         this.name = type;
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Role(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	public Role() {
+	}
 }

@@ -27,7 +27,7 @@ public class Event {
     private String description;
 
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JoinTable(name = "event_categories",
@@ -92,5 +92,80 @@ public class Event {
 
         return missingFields.isEmpty() ? null : String.join(", ", missingFields);
     }
+
+    public Event(Long id, String title, String description, Set<Category> categories, User organizer,
+			Set<Event> enrolled_users) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.categories = categories;
+		this.organizer = organizer;
+		this.enrolled_users = enrolled_users;
+	}
+    
+    public Event() {
+
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public Set<Category> getCategories() {
+		return categories;
+	}
+
+
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
+	}
+
+
+	public User getOrganizer() {
+		return organizer;
+	}
+
+
+	public void setOrganizer(User organizer) {
+		this.organizer = organizer;
+	}
+
+
+	public Set<Event> getEnrolled_users() {
+		return enrolled_users;
+	}
+
+
+	public void setEnrolled_users(Set<Event> enrolled_users) {
+		this.enrolled_users = enrolled_users;
+	}
 
 }
