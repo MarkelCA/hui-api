@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.grupo5.huiapi.modules.category.entity.Category;
 import com.grupo5.huiapi.modules.event.entity.Event;
 import com.grupo5.huiapi.modules.user.modules.role.entity.Role;
-import lombok.*;
 import org.springframework.util.ObjectUtils;
 
 import javax.persistence.*;
@@ -18,12 +17,9 @@ import java.util.Set;
 // JPA
 @Entity @Table(name = "users")
 // Lombok
-@AllArgsConstructor @NoArgsConstructor
-@Getter @Setter
-@ToString
+
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class User  {
-    @Getter @Setter
     @Id
     @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1 )
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
@@ -49,8 +45,6 @@ public class User  {
     @ManyToOne
     private Role role;
 
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "enrolled_events",
             joinColumns = {

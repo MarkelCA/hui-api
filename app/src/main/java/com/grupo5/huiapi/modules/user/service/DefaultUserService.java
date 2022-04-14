@@ -9,14 +9,13 @@ import com.grupo5.huiapi.modules.event.entity.Event;
 import com.grupo5.huiapi.modules.user.entity.User;
 import com.grupo5.huiapi.modules.user.modules.role.service.Roles;
 import com.grupo5.huiapi.modules.user.repository.UserRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service @Slf4j
+@Service
 @Qualifier("DefaultUserService")
 public class DefaultUserService implements UserService {
     private final UserRepository userRepository;

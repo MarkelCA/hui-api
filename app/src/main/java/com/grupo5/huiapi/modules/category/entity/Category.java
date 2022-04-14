@@ -3,16 +3,13 @@ package com.grupo5.huiapi.modules.category.entity;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity @Table
-@NoArgsConstructor @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Data
 public class Category {
     @Id
     @SequenceGenerator(sequenceName = "category_sequence", name = "category_sequence", allocationSize = 1)

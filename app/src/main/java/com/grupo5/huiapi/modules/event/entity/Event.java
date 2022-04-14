@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.grupo5.huiapi.modules.category.entity.Category;
 import com.grupo5.huiapi.modules.user.entity.User;
-import lombok.*;
 import org.springframework.util.ObjectUtils;
 
 import javax.persistence.*;
@@ -14,8 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@NoArgsConstructor @AllArgsConstructor
-@Entity @Table @Data
+@Entity @Table
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Event {
     @Id
@@ -28,8 +26,6 @@ public class Event {
 
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     @JoinTable(name = "event_categories",
         joinColumns = {
             @JoinColumn(name = "event_id", referencedColumnName = "id", updatable = false)
@@ -46,8 +42,6 @@ public class Event {
     @JsonIdentityReference(alwaysAsId = true)
     private User organizer;
 
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "enrolled_events",
             joinColumns = {
