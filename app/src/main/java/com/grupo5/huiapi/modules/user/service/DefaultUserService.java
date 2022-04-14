@@ -65,7 +65,7 @@ public class DefaultUserService implements UserService {
 
         userRepository.save(user);
 
-        log.info("User successfully registered");
+        //log.info("User successfully registered");
         return "User successfully registered";
     }
     public String delete(Long id, String password) throws IncorrectPasswordException, EntityNotFoundException {

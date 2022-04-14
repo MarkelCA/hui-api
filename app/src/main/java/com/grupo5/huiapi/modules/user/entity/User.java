@@ -119,4 +119,140 @@ public class User  {
 
         return missingFields.isEmpty() ? null : String.join(", ", missingFields);
     }
+
+	public User(Long id, String username, String password, String email, String fullName, String description,
+			String instagram, String telegram, String youtube, String facebook, Role role, Set<Event> enrolled_events,
+			Set<Event> organized_events, Set<Category> favorite_categories) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.fullName = fullName;
+		this.description = description;
+		this.instagram = instagram;
+		this.telegram = telegram;
+		this.youtube = youtube;
+		this.facebook = facebook;
+		this.role = role;
+		this.enrolled_events = enrolled_events;
+		this.organized_events = organized_events;
+		this.favorite_categories = favorite_categories;
+	}
+	
+	public User() {
+
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getInstagram() {
+		return instagram;
+	}
+
+	public void setInstagram(String instagram) {
+		this.instagram = instagram;
+	}
+
+	public String getTelegram() {
+		return telegram;
+	}
+
+	public void setTelegram(String telegram) {
+		this.telegram = telegram;
+	}
+
+	public String getYoutube() {
+		return youtube;
+	}
+
+	public void setYoutube(String youtube) {
+		this.youtube = youtube;
+	}
+
+	public String getFacebook() {
+		return facebook;
+	}
+
+	public void setFacebook(String facebook) {
+		this.facebook = facebook;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public Set<Event> getEnrolled_events() {
+		return enrolled_events;
+	}
+
+	public void setEnrolled_events(Set<Event> enrolled_events) {
+		this.enrolled_events = enrolled_events;
+	}
+
+	public Set<Event> getOrganized_events() {
+		return organized_events;
+	}
+
+	public void setOrganized_events(Set<Event> organized_events) {
+		this.organized_events = organized_events;
+	}
+
+	public Set<Category> getFavorite_categories() {
+		return favorite_categories;
+	}
+
+	public void setFavorite_categories(Set<Category> favorite_categories) {
+		this.favorite_categories = favorite_categories;
+	}
 }
