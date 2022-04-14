@@ -121,7 +121,7 @@ public class DefaultUserService implements UserService {
         User user = optionalUser.get();
 
         if(!inputPassword.equals(user.getPassword()))
-            throw new IncorrectPasswordException("Couldn't find a user with this email.");
+            throw new IncorrectPasswordException();
 
         return user;
     }
