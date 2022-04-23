@@ -70,7 +70,7 @@ public class User  {
                     @JoinColumn(name = "user_id", referencedColumnName = "id", updatable = false)
             }
     )
-    @JsonIdentityReference(alwaysAsId = true)
+    //@JsonIdentityReference(alwaysAsId = true)
     private Set<Category> favorite_categories = new HashSet<>();
 
 
@@ -91,7 +91,6 @@ public class User  {
         this.email = mail;
         this.username = username;
     }
-    // Constructor con los parámetros mínimos
     public User(String username, String password, String mail, String fullName, Set<Category> favorite_categories, Role role) {
         this.password = password;
         this.fullName = fullName;
@@ -100,6 +99,15 @@ public class User  {
         this.favorite_categories = favorite_categories;
         this.role = role;
     }
+	public User(String username, String password, String mail, String fullName, String description, Set<Category> favorite_categories, Role role) {
+		this.password = password;
+		this.description = description;
+		this.fullName = fullName;
+		this.email = mail;
+		this.username = username;
+		this.favorite_categories = favorite_categories;
+		this.role = role;
+	}
     public String checkNullFields() {
         List<String> missingFields = new ArrayList<>();
         if(ObjectUtils.isEmpty(this.password))

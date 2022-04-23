@@ -13,25 +13,26 @@ paths:
         200:
           description: Users List
     post:
-          operationId: Register User
-          requestBody:
-            required: true
-            content:
-                application/json:
-                  schema:
-                    $ref: '#components/schemas/User'
-                  example:
-                      {
-                        username: newUsername,
-                        email: newUser@gmail.com,
-                        password: mypassword123,
-                        fullName: New User
-                      }        
-          responses:
-              200:
-                description: User registered
-              400:
-                description: Missing one or more fields (password, fulname, username, email)
+      operationId: Register User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/schemas/User'
+            example:
+              {
+                username: newUsername,
+                email: newUser@gmail.com,
+                password: mypassword123,
+                fullName: New User
+                role : user
+              }
+      responses:
+        200:
+          description: User registered
+        400:
+          description: Missing one or more fields (password, fulname, username, email)
   /user/{id}:
     get:
       operationId: Get User
@@ -49,67 +50,67 @@ paths:
         200:
           description: User data
         404:
-            description: User not found
+          description: User not found
     put:
-        operationId: Update User
-        parameters:
-          - in: path
-            required: true
-            name: id
+      operationId: Update User
+      parameters:
+        - in: path
+          required: true
+          name: id
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
             schema:
-              type: integer
-              minimum: 1
-              default: 1
-        requestBody:
-            required: true
-            content:
-                application/json:
-                  schema:
-                    $ref: '#components/schemas/User'
-                  example:
-                    {
-                      password: anotherpassword123,
-                      user: {
-                        username: updatedUser,
-                        email: updatedUser@gmail.com,
-                        password: myUpdatedPassword123,
-                        fullName: Updated Username
-                      }
-                    }   
-        responses:
-          200:
-            description: User updated
-          400:
-            description: Missing one or more fields (password, fulname, username, email)
-          401:
-              description: Incorrect password
-          404:
-              description: User not found
+              $ref: '#components/schemas/User'
+            example:
+              {
+                password: anotherpassword123,
+                user: {
+                  username: updatedUser,
+                  email: updatedUser@gmail.com,
+                  password: myUpdatedPassword123,
+                  fullName: Updated Username
+                }
+              }
+      responses:
+        200:
+          description: User updated
+        400:
+          description: Missing one or more fields (password, fulname, username, email)
+        401:
+          description: Incorrect password
+        404:
+          description: User not found
     delete:
-        operationId: Delete User
-        parameters:
-          - in: path 
-            required: true
-            name: id
-            schema: 
-              type: integer
-              minimum: 1
-              default: 1
-        requestBody:
-            required: true
-            content:
-                application/json:
-                  schema:
-                    type: object
-                  example:
-                    {
-                      password: anotherpassword123
-                    }
-        responses:
-            200:
-                description: User deleted
-            400:
-                description: User not found
+      operationId: Delete User
+      parameters:
+        - in: path
+          required: true
+          name: id
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              {
+                password: anotherpassword123
+              }
+      responses:
+        200:
+          description: User deleted
+        400:
+          description: User not found
   /categories:
     summary: List all the categories with its full data
     get:
@@ -132,7 +133,7 @@ paths:
         200:
           description: Category data
         404:
-            description: Category not found
+          description: Category not found
   /categories/{id}/subcategories:
     get:
       operationId: Get Subcategories
@@ -148,7 +149,22 @@ paths:
         200:
           description: Subcategories
         404:
-            description: Category not found
+          description: Category not found
+  /categories/list:
+    get:
+      operationId: Get Caterories by IDs
+      summary: List of categories given a Integer List
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              [ 1,2,3,4 ]
+      responses:
+        200:
+          description: Category List
+        400:
+          description: One of the categories not found
   /events:
     get:
       operationId: List Events
@@ -158,18 +174,18 @@ paths:
     post:
       operationId: Register Event
       requestBody:
-            required: true
-            content:
-                application/json:
-                  schema:
-                    $ref: '#components/schemas/User'
-                  example:
-                      {
-                        title: Event title,
-                        description: Event description,
-                        categories: [1,2,3,4],
-                        organizer: 1
-                      }        
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/schemas/User'
+            example:
+              {
+                title: Event title,
+                description: Event description,
+                categories: [ 1,2,3,4 ],
+                organizer: 1
+              }
       responses:
         200:
           description: Event registered
@@ -191,7 +207,7 @@ paths:
         200:
           description: Event data
         404:
-            description: Event not found
+          description: Event not found
     put:
       operationId: Update Event
       parameters:
@@ -205,21 +221,21 @@ paths:
       requestBody:
         required: true
         content:
-            application/json:
-              schema:
-                $ref: '#components/schemas/Event'
-              example: 
-                {
-                  password: "anotherpassword123",
-                  event: {
-                    "id": 1,
-                    "title": "Partido de fútbol",
-                    "description": "Un partido de fútbol amistoso entre los del barrio",
-                    "categories": [1,5],
-                    "organizer": 1
-                  }
-                  
-                }       
+          application/json:
+            schema:
+              $ref: '#components/schemas/Event'
+            example:
+              {
+                password: "anotherpassword123",
+                event: {
+                  "id": 1,
+                  "title": "Partido de fútbol",
+                  "description": "Un partido de fútbol amistoso entre los del barrio",
+                  "categories": [ 1,5 ],
+                  "organizer": 1
+                }
+
+              }
       responses:
         200:
           description: Event updated
@@ -230,7 +246,7 @@ paths:
     delete:
       operationId: Delete Event
       parameters:
-        - in : path
+        - in: path
           name: id
           required: true
           schema:
@@ -241,10 +257,10 @@ paths:
         required: true
         content:
           application/json:
-            example: 
+            example:
               {
                 password: "anotherpassword123"
-              }     
+              }
       responses:
         200:
           description: Event removed
@@ -253,7 +269,7 @@ paths:
     put:
       operationId: Enroll User
       parameters:
-        - in : path
+        - in: path
           required: true
           name: id
           schema:
@@ -264,11 +280,11 @@ paths:
         required: true
         content:
           application/json:
-            example: 
-             {
-                 password: "anotherpassword123",
-                 userId: 1
-              } 
+            example:
+              {
+                password: "anotherpassword123",
+                userId: 1
+              }
       responses:
         200:
           description: User enrolled
@@ -286,9 +302,9 @@ components:
           type: integer
           format: int64
         name:
-            type: string
+          type: string
         parent:
-            type: object
+          type: object
     User:
       type: object
       required:
@@ -311,21 +327,21 @@ components:
           type: string
         favorite_categories:
           type: array
-          items: {}
+          items: { }
     Event:
       type: object
-      required: 
+      required:
         - id
         - title
-        - organizer 
+        - organizer
       properties:
-        id: 
+        id:
           type: integer
           format: int64
         title:
-            type: string
+          type: string
         description:
-            type: string
+          type: string
         organizer:
           type: object
   securitySchemes:
@@ -333,4 +349,4 @@ components:
       type: http
       scheme: basic
 security:
-  - BasicAuth: []
+  - BasicAuth: [ ]

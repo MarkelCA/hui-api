@@ -66,7 +66,8 @@ public class DBConfig {
 
     private List<User> getInitialUsers() {
         Category boxingat = categoryRepository.findCategoryByName("Boxeo").get();
-        Set<Category> favs1 = new HashSet<>(List.of(boxingat));
+        Category crossfitCat = categoryRepository.findCategoryByName("Crossfit").get();
+        Set<Category> favs1 = new HashSet<>(List.of(boxingat, crossfitCat));
         Role userRole = roleRepository.findByName("user").get();
         Role adminRole = roleRepository.findByName("admin").get();
 
@@ -85,6 +86,7 @@ public class DBConfig {
                 "password123",
                 "cuestaarribas.markel@gmail.com",
                 "Markel Cuesta",
+                "Soy muy majo y me gustan los deportes",
                     favs1,
                     adminRole
             )
