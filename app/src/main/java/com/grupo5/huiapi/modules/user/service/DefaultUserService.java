@@ -109,6 +109,11 @@ public class DefaultUserService implements UserService {
 
     @Override
     public User login(JsonNode jsonUser) throws EntityNotFoundException, IncorrectPasswordException {
+        if(jsonUser.isEmpty())
+            throw new EntityNotFoundException(EntityType.USER);
+
+        System.out.println(jsonUser);
+
         String username = jsonUser.get("username").asText();
         String inputPassword = jsonUser.get("password").asText();
 
