@@ -91,7 +91,16 @@ public class DBConfig {
                 "Soy muy majo y me gustan los deportes",
                     favs1,
                     adminRole
-            )
+            ),
+            new User(
+                    "user",
+                    "user",
+                    "cuestaarriba.markel@gmail.com",
+                    "User Usher",
+                    "Soy muy majo y me gustan los deportes",
+                        favs1,
+                        adminRole
+                )
 
         );
     }
