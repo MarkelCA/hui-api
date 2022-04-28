@@ -23,6 +23,10 @@ public class Event {
     @Column(nullable = false)
     private String title;
     private String description;
+    @Column(nullable = false)
+    private double latitude;
+    @Column(nullable = false)
+    private double longitude;
 
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
@@ -162,4 +166,19 @@ public class Event {
 		this.enrolled_users = enrolled_users;
 	}
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 }

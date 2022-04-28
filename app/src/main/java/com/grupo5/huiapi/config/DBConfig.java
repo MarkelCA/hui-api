@@ -52,6 +52,8 @@ public class DBConfig {
         Event futbol = new Event("Partido de fútbol",
                 "Un partido de fútbol amistoso entre los del barrio",
                 user1);
+        futbol.setLatitude(43.110786);
+        futbol.setLongitude(-2.905345);
         futbol.addCategory(futbolCat.get());
 
         Optional<Category> boxingat = categoryRepository.findCategoryByName("Boxeo");

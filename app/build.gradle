@@ -2,6 +2,16 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id "application"
+}
+
+apply plugin : "java"
+ext {
+	javaMainClass = "com.grupo5.huiapi.HuiApiApplication"
+}
+
+application {
+	mainClassName = javaMainClass
 }
 
 group = 'com.grupo5.hui-api'
