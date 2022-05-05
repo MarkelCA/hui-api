@@ -54,14 +54,6 @@ public class DefaultUserService implements UserService {
             throw new RequiredValuesMissingException(missingValues);
         System.out.println(user);
 
-        if (user.getRole().getName() == null)
-            roleService.addRoleToUser("user", user);
-
-        String enteredRole = user.getRole().getName();
-
-        String addingRole = enteredRole == null ? "user" : enteredRole;
-         roleService.addRoleToUser(enteredRole, user);
-
         userRepository.save(user);
 
         //log.info("User successfully registered");

@@ -79,9 +79,7 @@ public class DBConfig {
                 "anotherpassword123",
                 "jon@email.com",
                 "Jon Arroita",
-                    favs1,
-                    userRole
-
+                    favs1
             ),
             new User(
                 "markelca",
@@ -89,8 +87,7 @@ public class DBConfig {
                 "cuestaarribas.markel@gmail.com",
                 "Markel Cuesta",
                 "Soy muy majo y me gustan los deportes",
-                    favs1,
-                    adminRole
+                    favs1
             ),
             new User(
                     "user",
@@ -98,9 +95,8 @@ public class DBConfig {
                     "cuestaarriba.markel@gmail.com",
                     "User Usher",
                     "Soy muy majo y me gustan los deportes",
-                        favs1,
-                        adminRole
-                )
+                        favs1
+            )
 
         );
     }

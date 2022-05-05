@@ -43,7 +43,7 @@ public class Event {
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "organizer_id", nullable = false)
-    @JsonIdentityReference(alwaysAsId = true)
+    //@JsonIdentityReference(alwaysAsId = true)
     private User organizer;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

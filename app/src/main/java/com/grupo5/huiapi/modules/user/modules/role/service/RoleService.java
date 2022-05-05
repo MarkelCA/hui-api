@@ -28,7 +28,6 @@ public class RoleService implements Roles {
         if(optionalRole.isEmpty())
             throw new EntityNotFoundException(EntityType.ROLE);
 
-        user.setRole( optionalRole.get() );
         return null;
     }
 }

@@ -42,8 +42,7 @@ public class User  {
     private String youtube;
     @Column()
     private String facebook;
-    @ManyToOne
-    private Role role;
+
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "enrolled_events",
@@ -70,7 +69,7 @@ public class User  {
                     @JoinColumn(name = "user_id", referencedColumnName = "id", updatable = false)
             }
     )
-    //@JsonIdentityReference(alwaysAsId = true)
+    //@JsonIdentityReference(alwaysAsId = false)
     private Set<Category> favorite_categories = new HashSet<>();
 
 
@@ -91,22 +90,20 @@ public class User  {
         this.email = mail;
         this.username = username;
     }
-    public User(String username, String password, String mail, String fullName, Set<Category> favorite_categories, Role role) {
+    public User(String username, String password, String mail, String fullName, Set<Category> favorite_categories) {
         this.password = password;
         this.fullName = fullName;
         this.email = mail;
         this.username = username;
         this.favorite_categories = favorite_categories;
-        this.role = role;
     }
-	public User(String username, String password, String mail, String fullName, String description, Set<Category> favorite_categories, Role role) {
+	public User(String username, String password, String mail, String fullName, String description, Set<Category> favorite_categories) {
 		this.password = password;
 		this.description = description;
 		this.fullName = fullName;
 		this.email = mail;
 		this.username = username;
 		this.favorite_categories = favorite_categories;
-		this.role = role;
 	}
     public String checkNullFields() {
         List<String> missingFields = new ArrayList<>();
@@ -136,7 +133,6 @@ public class User  {
 		this.telegram = telegram;
 		this.youtube = youtube;
 		this.facebook = facebook;
-		this.role = role;
 		this.enrolled_events = enrolled_events;
 		this.organized_events = organized_events;
 		this.favorite_categories = favorite_categories;
@@ -224,14 +220,6 @@ public class User  {
 
 	public void setFacebook(String facebook) {
 		this.facebook = facebook;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
 	}
 
 	public Set<Event> getEnrolled_events() {
