@@ -117,6 +117,10 @@ public class DefaultEventService implements EventService {
 
         Event event = optionalEvent.get();
         userService.enrollToEvent(event, user);
+
+        event.getEnrolled_users().add(user);
+        //eventRepository.save(event);
+
         return "Enrolled to event";
     }
 }

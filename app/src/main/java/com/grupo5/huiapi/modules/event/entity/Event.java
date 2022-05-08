@@ -55,7 +55,7 @@ public class Event {
                     @JoinColumn(name = "event_id", referencedColumnName = "id", updatable = false)
             }
     )
-    private Set<Event> enrolled_users = new HashSet<>();
+    private Set<User> enrolled_users = new HashSet<>();
 
     public Event(String title, String description, Set<Category> categories, User organizer) {
         this.title = title;
@@ -92,7 +92,7 @@ public class Event {
     }
 
     public Event(Long id, String title, String description, Set<Category> categories, User organizer,
-			Set<Event> enrolled_users) {
+			Set<User> enrolled_users) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -157,12 +157,12 @@ public class Event {
 	}
 
 
-	public Set<Event> getEnrolled_users() {
+	public Set<User> getEnrolled_users() {
 		return enrolled_users;
 	}
 
 
-	public void setEnrolled_users(Set<Event> enrolled_users) {
+	public void setEnrolled_users(Set<User> enrolled_users) {
 		this.enrolled_users = enrolled_users;
 	}
 
