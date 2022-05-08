@@ -7,7 +7,6 @@ import com.grupo5.huiapi.modules.EntityType;
 import com.grupo5.huiapi.exceptions.*;
 import com.grupo5.huiapi.modules.event.entity.Event;
 import com.grupo5.huiapi.modules.user.entity.User;
-import com.grupo5.huiapi.modules.user.modules.role.service.Roles;
 import com.grupo5.huiapi.modules.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,13 +18,11 @@ import java.util.Optional;
 @Qualifier("DefaultUserService")
 public class DefaultUserService implements UserService {
     private final UserRepository userRepository;
-    private final Roles roleService;
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public DefaultUserService(UserRepository userRepository, @Qualifier("RolesService") Roles roleService, ObjectMapper objectMapper) {
+    public DefaultUserService(UserRepository userRepository, ObjectMapper objectMapper) {
         this.userRepository = userRepository;
-        this.roleService = roleService;
         this.objectMapper = objectMapper;
     }
     public User get(Long id) throws EntityNotFoundException {

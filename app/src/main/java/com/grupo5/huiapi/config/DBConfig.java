@@ -5,8 +5,6 @@ import com.grupo5.huiapi.modules.category.repository.CategoryRepository;
 import com.grupo5.huiapi.modules.event.entity.Event;
 import com.grupo5.huiapi.modules.event.repository.EventRepository;
 import com.grupo5.huiapi.modules.user.entity.User;
-import com.grupo5.huiapi.modules.user.modules.role.entity.Role;
-import com.grupo5.huiapi.modules.user.modules.role.repository.RoleRepository;
 import com.grupo5.huiapi.modules.user.repository.UserRepository;
 import com.grupo5.huiapi.utils.ListUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,23 +23,15 @@ public class DBConfig {
     private UserRepository userRepository;
     @Autowired
     private EventRepository eventRepository;
-    @Autowired
-    private RoleRepository roleRepository;
 
     @Bean
     CommandLineRunner commandLineRunner() {
         return args -> {
             categoryRepository.saveAll( getInitialCategories() );
-            roleRepository.saveAll( getInitialRoles() );
             userRepository.saveAll( getInitialUsers() );
             eventRepository.saveAll( getInitialEvents() );
 
         };
-    }
-    private List<Role> getInitialRoles() {
-        Role user = new Role("user");
-        Role admin = new Role("admin");
-        return List.of(user,admin);
     }
 
     private List<Event> getInitialEvents() {
@@ -70,8 +60,6 @@ public class DBConfig {
         Category boxingat = categoryRepository.findCategoryByName("Boxeo").get();
         Category crossfitCat = categoryRepository.findCategoryByName("Crossfit").get();
         Set<Category> favs1 = new HashSet<>(List.of(boxingat, crossfitCat));
-        Role userRole = roleRepository.findByName("user").get();
-        Role adminRole = roleRepository.findByName("admin").get();
 
         return List.of(
             new User(

@@ -3,7 +3,6 @@ package com.grupo5.huiapi.modules.user.entity;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.grupo5.huiapi.modules.category.entity.Category;
 import com.grupo5.huiapi.modules.event.entity.Event;
-import com.grupo5.huiapi.modules.user.modules.role.entity.Role;
 import org.springframework.util.ObjectUtils;
 
 import javax.persistence.*;
@@ -118,7 +117,7 @@ public class User  {
     }
 
 	public User(Long id, String username, String password, String email, String fullName, String description,
-			String instagram, String telegram, String youtube, String facebook, Role role, Set<Event> enrolled_events,
+			String instagram, String telegram, String youtube, String facebook,
 			Set<Event> organized_events, Set<Category> favorite_categories) {
 		super();
 		this.id = id;
