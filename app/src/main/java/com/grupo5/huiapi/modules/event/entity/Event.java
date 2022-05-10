@@ -49,10 +49,11 @@ public class Event {
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "enrolled_events",
             joinColumns = {
-                    @JoinColumn(name = "user_id", referencedColumnName = "id", updatable = false)
+                    @JoinColumn(name = "event_id", referencedColumnName = "id", updatable = false)
             },
             inverseJoinColumns = {
-                    @JoinColumn(name = "event_id", referencedColumnName = "id", updatable = false)
+                    @JoinColumn(name = "user_id", referencedColumnName = "id", updatable = false)
+
             }
     )
     private Set<User> enrolled_users = new HashSet<>();
