@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.grupo5.huiapi.exceptions.*;
+import com.grupo5.huiapi.modules.event.entity.Event;
 import com.grupo5.huiapi.modules.user.entity.User;
 import com.grupo5.huiapi.modules.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,15 @@ public class UserController {
         } catch(JsonProcessingException | RequiredValuesMissingException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
 
+        }
+    }
+    
+    @GetMapping(path = "{id}/enrolled_events")
+    public List<Event> getEnrolledEvents(@PathVariable("id") Long id) {
+        try {
+            return userService.getEnrolledEvents(id);
+        } catch (EntityNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
         }
     }
 
