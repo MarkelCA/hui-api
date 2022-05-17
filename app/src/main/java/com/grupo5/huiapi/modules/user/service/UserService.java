@@ -17,5 +17,5 @@ public interface UserService extends Service<User, Long> {
     String delete(Long id, String password) throws IncorrectPasswordException, EntityNotFoundException;
     void enrollToEvent(Event event, User user);
     User login(JsonNode jsonUser) throws EntityNotFoundException, IncorrectPasswordException;
-    List<Event> getEnrolledEvents(Long id) throws EntityNotFoundException;
+    List<Event> getEnrolledEvents(Long user_id) throws EntityNotFoundException;
 }
