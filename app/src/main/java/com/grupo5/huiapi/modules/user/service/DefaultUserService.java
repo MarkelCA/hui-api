@@ -11,6 +11,8 @@ import com.grupo5.huiapi.modules.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -118,6 +120,24 @@ public class DefaultUserService implements UserService {
 
         return user;
     }
+	@Override
+	public List<Event> getEnrolledEvents(Long user_id) throws EntityNotFoundException {
+		
+		System.out.println(user_id);
+		
+		List<Event> enrolled_Events;
+
+		 Optional<User> user = userRepository.findById(user_id);
+	        if(user.isEmpty()) {
+	        	 throw new EntityNotFoundException(EntityType.USER);
+	        }else {
+	        	enrolled_Events = new ArrayList(user.get().getEnrolled_events());
+	        	 //userRepository.findEnrolledEvents(user_id);
+	        }
+
+        return enrolled_Events;
+
+	}
 
 
 }

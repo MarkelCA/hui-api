@@ -82,5 +82,14 @@ public class EventController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
         }
     }
+    
+    @GetMapping(path = "{id}/created_events")
+    public List<Event> getCreatedEvents(@PathVariable("id") Long id) {
+        try {
+            return eventService.getCreatedEvents(id);
+        } catch (EntityNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+        }
+    }
 
 }
