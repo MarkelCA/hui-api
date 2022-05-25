@@ -3,8 +3,11 @@ package com.grupo5.huiapi.modules.user.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.grupo5.huiapi.modules.EntityType;
 import com.grupo5.huiapi.exceptions.*;
+import com.grupo5.huiapi.modules.category.entity.Category;
+import com.grupo5.huiapi.modules.category.service.CategoryService;
 import com.grupo5.huiapi.modules.event.entity.Event;
 import com.grupo5.huiapi.modules.user.entity.User;
 import com.grupo5.huiapi.modules.user.repository.UserRepository;
@@ -12,19 +15,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Qualifier("DefaultUserService")
 public class DefaultUserService implements UserService {
     private final UserRepository userRepository;
+    private final CategoryService categoryService;
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public DefaultUserService(UserRepository userRepository, ObjectMapper objectMapper) {
+    public DefaultUserService(UserRepository userRepository, CategoryService categoryService, ObjectMapper objectMapper) {
         this.userRepository = userRepository;
+        this.categoryService = categoryService;
         this.objectMapper = objectMapper;
     }
     public User get(Long id) throws EntityNotFoundException {
@@ -70,6 +73,33 @@ public class DefaultUserService implements UserService {
 
         userRepository.delete(user);
         return "User successfully deleted";
+    }
+    public Set<Category> getCategoriesFromNode(JsonNode categoriesNode) throws EntityNotFoundException {
+        JsonNode categories = categoriesNode.get("categories");
+        List<String> categoryIds = new ArrayList<>();
+        try {
+            categoryIds = objectMapper.readValue(categories.asText(), TypeFactory.defaultInstance().constructCollectionType(List.class, String.class));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        ;
+        return getCategoriesFromName(categoryIds);
+    }
+
+    public Set<Category> getCategoriesFromName(List<String> categories) throws EntityNotFoundException {
+        Set<Category> ret = new HashSet<>();
+        for (String category : categories) {
+            ret.add(categoryService.get(category));
+        }
+        return ret;
+    }
+
+    public Set<Category> getCategoriesFromIds(List<Integer> categories) throws EntityNotFoundException {
+        Set<Category> ret = new HashSet<>();
+        for (Integer category : categories) {
+            ret.add(categoryService.get(Long.valueOf(category)));
+        }
+        return ret;
     }
     public String update(Long id, String password, JsonNode updatingJsonUser) throws IncorrectPasswordException, RequiredValuesMissingException, EntityNotFoundException, JsonProcessingException {
         User updatingUser = objectMapper.treeToValue(updatingJsonUser, User.class);
