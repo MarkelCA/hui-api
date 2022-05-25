@@ -55,6 +55,8 @@ public class DefaultEventService implements EventService {
 		String description = eventNode.get("description").asText();
 		User user = userService.get(eventNode.get("organizer").asLong());
 		Event event = new Event(title, description, categories, user);
+		event.setLatitude( eventNode.get("latitude").asDouble() );
+		event.setLongitude( eventNode.get("longitude").asDouble() );
 		eventRepository.save(event);
 		return "Event registered";
 	}
