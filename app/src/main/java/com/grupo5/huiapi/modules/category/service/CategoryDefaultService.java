@@ -8,6 +8,8 @@ import com.grupo5.huiapi.exceptions.EntityNotFoundException;
 import com.grupo5.huiapi.modules.EntityType;
 import com.grupo5.huiapi.modules.category.entity.Category;
 import com.grupo5.huiapi.modules.category.repository.CategoryRepository;
+import com.grupo5.huiapi.modules.event.entity.Event;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -67,4 +69,12 @@ public class CategoryDefaultService implements CategoryService {
     public String delete(Long id, String password) throws CustomException {
         return null;
     }
+
+	@Override
+	public Category get(String name) throws EntityNotFoundException {
+		Optional<Category> optionalCategory = categoryRepository.findCategoryByName(name);
+		if (optionalCategory.isEmpty())
+			throw new EntityNotFoundException(EntityType.CATEGORY);
+		return optionalCategory.get();
+	}
 }

@@ -58,15 +58,24 @@ public class DefaultEventService implements EventService {
 		event.setLatitude( eventNode.get("latitude").asDouble() );
 		event.setLongitude( eventNode.get("longitude").asDouble() );
 		eventRepository.save(event);
+		
 		return "Event registered";
 	}
 
 	public Set<Category> getCategoriesFromNode(JsonNode categoriesNode) throws EntityNotFoundException {
 		JsonNode categories = categoriesNode.get("categories");
-		List<Integer> categoryIds = objectMapper.convertValue(categories, ArrayList.class);
-		return getCategoriesFromIds(categoryIds);
+		List<String> categoryIds = objectMapper.convertValue(categories, ArrayList.class);
+		return getCategoriesFromName(categoryIds);
 	}
 
+	public Set<Category> getCategoriesFromName(List<String> categories) throws EntityNotFoundException {
+		Set<Category> ret = new HashSet<>();
+		for (String category : categories) {
+			ret.add(categoryService.get(category));
+		}
+		return ret;
+	}
+	
 	public Set<Category> getCategoriesFromIds(List<Integer> categories) throws EntityNotFoundException {
 		Set<Category> ret = new HashSet<>();
 		for (Integer category : categories) {

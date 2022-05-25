@@ -27,9 +27,9 @@ public class DBConfig {
     @Bean
     CommandLineRunner commandLineRunner() {
         return args -> {
-            categoryRepository.saveAll( getInitialCategories() );
-            userRepository.saveAll( getInitialUsers() );
-            eventRepository.saveAll( getInitialEvents() );
+//            categoryRepository.saveAll( getInitialCategories() );
+//            userRepository.saveAll( getInitialUsers() );
+//            eventRepository.saveAll( getInitialEvents() );
 
         };
     }
