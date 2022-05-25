@@ -1,7 +1,9 @@
 package com.grupo5.huiapi.modules.event.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.grupo5.huiapi.exceptions.EntityNotFoundException;
 import com.grupo5.huiapi.exceptions.IncorrectPasswordException;
 import com.grupo5.huiapi.exceptions.RequiredValuesMissingException;
@@ -64,7 +66,13 @@ public class DefaultEventService implements EventService {
 
 	public Set<Category> getCategoriesFromNode(JsonNode categoriesNode) throws EntityNotFoundException {
 		JsonNode categories = categoriesNode.get("categories");
-		List<String> categoryIds = objectMapper.convertValue(categories, ArrayList.class);
+		List<String> categoryIds = new ArrayList<>();
+		try {
+			categoryIds = objectMapper.readValue(categories.asText(), TypeFactory.defaultInstance().constructCollectionType(List.class, String.class));
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		;
 		return getCategoriesFromName(categoryIds);
 	}
 
