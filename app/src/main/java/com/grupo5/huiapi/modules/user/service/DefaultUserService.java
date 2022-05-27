@@ -10,6 +10,8 @@ import com.grupo5.huiapi.modules.category.entity.Category;
 import com.grupo5.huiapi.modules.category.service.CategoryService;
 import com.grupo5.huiapi.modules.event.entity.Event;
 import com.grupo5.huiapi.modules.user.entity.User;
+import com.grupo5.huiapi.modules.user.entity.UserParsetCategories;
+import com.grupo5.huiapi.modules.user.entity.UserUpdateRecieved;
 import com.grupo5.huiapi.modules.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -61,6 +63,7 @@ public class DefaultUserService implements UserService {
         //log.info("User successfully registered");
         return "User successfully registered";
     }
+
     public String delete(Long id, String password) throws IncorrectPasswordException, EntityNotFoundException {
         Optional<User> optionalUser = userRepository.findById(id);
         if(optionalUser.isEmpty())
@@ -102,6 +105,9 @@ public class DefaultUserService implements UserService {
         return ret;
     }
     public String update(Long id, String password, JsonNode updatingJsonUser) throws IncorrectPasswordException, RequiredValuesMissingException, EntityNotFoundException, JsonProcessingException {
+
+        Set<Category> categories = getCategoriesFromNode(updatingJsonUser);
+
         User updatingUser = objectMapper.treeToValue(updatingJsonUser, User.class);
 
         Optional<User> optionalUser = userRepository.findById(id);
@@ -109,10 +115,6 @@ public class DefaultUserService implements UserService {
             throw new EntityNotFoundException(EntityType.USER);
 
         User originalUser = optionalUser.get();
-
-        if( !originalUser.getPassword().equals(password) ) {
-            throw new IncorrectPasswordException();
-        }
 
         // Comprobamos si tiene todos los campos obligatorios
         String nullFields = updatingUser.checkNullFields();
@@ -123,6 +125,7 @@ public class DefaultUserService implements UserService {
         userRepository.save(updatingUser);
         return "User updated";
     }
+
     public void enrollToEvent(Event event, User user) {
         user.getEnrolled_events().add(event);
         userRepository.save(user);

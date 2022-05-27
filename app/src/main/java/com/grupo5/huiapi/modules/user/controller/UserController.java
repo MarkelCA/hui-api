@@ -62,10 +62,10 @@ public class UserController {
     }
 
     @PutMapping(path = "{id}")
-    public String updateUser(@PathVariable("id") Long id, @RequestBody ObjectNode body) {
-        String password = body.get("password").asText();
+    public String updateUser(@PathVariable("id") Long id, @RequestBody JsonNode body) {
+        //String password = body.get("password").asText();
         try {
-            return userService.update(id, password, body.get("user"));
+            return userService.update(id, "aa", body);
         } catch (IncorrectPasswordException e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage(), e);
         } catch(EntityNotFoundException e) {

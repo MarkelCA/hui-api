@@ -1,6 +1,7 @@
 package com.grupo5.huiapi.modules.user.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.grupo5.huiapi.modules.category.entity.Category;
 import com.grupo5.huiapi.modules.event.entity.Event;
 import org.springframework.util.ObjectUtils;
@@ -16,6 +17,7 @@ import java.util.Set;
 // Lombok
 
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIgnoreProperties({"categories"})
 public class User  {
     @Id
     @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1 )
