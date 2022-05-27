@@ -103,8 +103,6 @@ public class DefaultEventService implements EventService {
 		// User id exists
 		Long organizerId = event.get("organizer").asLong();
 		User user = userService.get(organizerId);
-		if (!user.getPassword().equals(password))
-			throw new IncorrectPasswordException();
 
 		// Categories exist
 		Set<Category> categories = getCategoriesFromNode(event);

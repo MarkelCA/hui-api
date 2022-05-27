@@ -48,9 +48,9 @@ public class EventController {
 
     @PutMapping(path = "{id}")
     public String updateEvent(@PathVariable("id") Long id, @RequestBody JsonNode body) throws JsonProcessingException {
-        String password = body.get("password").asText();
+        String password = "uaoeu";
         try {
-            return eventService.update(id, password, body.get("event"));
+            return eventService.update(id, password, body);
         } catch (EntityNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
         } catch (IncorrectPasswordException e) {
