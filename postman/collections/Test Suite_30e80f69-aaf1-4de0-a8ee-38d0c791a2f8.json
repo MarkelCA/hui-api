@@ -1,0 +1,1734 @@
+{
+    "info": {
+        "_postman_id": "d9607c78-6cc5-4f74-959e-2c19ecc1f74e",
+        "name": "Test Suite",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "user",
+            "item": [
+                {
+                    "name": "{id}",
+                    "item": [
+                        {
+                            "name": "A single User by its ID",
+                            "id": "18ea5fc9-7a2e-41b8-b990-b916c9e25106",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/user/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "user",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "104c91b8-8379-46c9-8d9d-95bc4718f4d8",
+                                    "name": "User data",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/user/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "user",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "2",
+                                                    "description": "(Required) A numeric id for the user"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "c11868e1-9eee-4307-b525-c884b151a754",
+                                    "name": "User not found",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/user/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "user",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "2",
+                                                    "description": "(Required) A numeric id for the user"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update User",
+                            "id": "da0e812a-9e56-4bc7-8cf3-9d548baa054a",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"user\": {\n    \"username\": \"updatedUser\",\n    \"email\": \"updatedUser@gmail.com\",\n    \"password\": \"myUpdatedPassword123\",\n    \"fullName\": \"Updated Username\"\n  }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/user/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "user",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "48d8e7f3-353f-49ad-b696-6daafdd0a711",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "541d1827-2dd1-4e85-b210-adb5b1726d19",
+                                    "name": "User updated",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"user\": {\n    \"username\": \"updatedUser\",\n    \"email\": \"updatedUser@gmail.com\",\n    \"password\": \"myUpdatedPassword123\",\n    \"fullName\": \"Updated Username\"\n  }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/user/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "user",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "644defdc-908d-4c75-aac3-c6faad63494b",
+                                    "name": "Missing one or more fields (password, fulname, username, email)",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"user\": {\n    \"username\": \"updatedUser\",\n    \"email\": \"updatedUser@gmail.com\",\n    \"password\": \"myUpdatedPassword123\",\n    \"fullName\": \"Updated Username\"\n  }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/user/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "user",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Bad Request",
+                                    "code": 400,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "95478c51-9819-45e5-9c14-7e61c8fe596f",
+                                    "name": "Incorrect password",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"user\": {\n    \"username\": \"updatedUser\",\n    \"email\": \"updatedUser@gmail.com\",\n    \"password\": \"myUpdatedPassword123\",\n    \"fullName\": \"Updated Username\"\n  }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/user/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "user",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Unauthorized",
+                                    "code": 401,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "3a13e02c-23d9-4e17-be1b-dfd17ed317d1",
+                                    "name": "User not found",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"user\": {\n    \"username\": \"updatedUser\",\n    \"email\": \"updatedUser@gmail.com\",\n    \"password\": \"myUpdatedPassword123\",\n    \"fullName\": \"Updated Username\"\n  }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/user/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "user",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Delete User",
+                            "id": "263cdd79-9e0f-40a6-99b9-b19b7659df7e",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"password\": \"anotherpassword123\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/user/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "user",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "4f2eb9d6-e7e4-4176-8229-247ecfd3473d",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "803a164e-a45f-4804-991d-ae6730c6f9c1",
+                                    "name": "User deleted",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/user/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "user",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "ed380480-a2df-4489-bb67-8ec36acc7756",
+                                    "name": "User not found",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/user/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "user",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Bad Request",
+                                    "code": 400,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "id": "996fb400-f099-4bc2-8286-42674a8a8658"
+                },
+                {
+                    "name": "List of all public users",
+                    "id": "1567ef1e-a542-44c1-b35c-0eebe2667596",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/user",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "user"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "8212e925-430a-4972-873d-0bf7eef74989",
+                            "name": "Users List",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "description": "Added as a part of security scheme: basic",
+                                        "key": "Authorization",
+                                        "value": "Basic <credentials>"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/user",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "user"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Register User",
+                    "id": "04fbd645-cd3d-4da9-9350-85df9990fad8",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"username\": \"newUsername\",\n  \"email\": \"newUser@gmail.com\",\n  \"password\": \"mypassword123\",\n  \"fullName\": \"New User\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/user",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "user"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "ebb48476-62e6-4003-adcb-2acb5d977078",
+                            "name": "User registered",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "description": "Added as a part of security scheme: basic",
+                                        "key": "Authorization",
+                                        "value": "Basic <credentials>"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"newUsername\",\n  \"email\": \"newUser@gmail.com\",\n  \"password\": \"mypassword123\",\n  \"fullName\": \"New User\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/user",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "user"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        },
+                        {
+                            "id": "d9f8685f-924f-4ad4-b05d-5d04edbc4678",
+                            "name": "Missing one or more fields (password, fulname, username, email)",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "description": "Added as a part of security scheme: basic",
+                                        "key": "Authorization",
+                                        "value": "Basic <credentials>"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"username\": \"newUsername\",\n  \"email\": \"newUser@gmail.com\",\n  \"password\": \"mypassword123\",\n  \"fullName\": \"New User\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/user",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "user"
+                                    ]
+                                }
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "id": "a334c887-ece2-4f84-9dcc-42398a66539b"
+        },
+        {
+            "name": "categories",
+            "item": [
+                {
+                    "name": "{id}",
+                    "item": [
+                        {
+                            "name": "Get Category",
+                            "id": "cbd30c75-e711-42da-a7ae-95cc1050cf8f",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/categories/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "categories",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "0f152104-e8b5-4197-8857-a49105756175",
+                                            "key": "id",
+                                            "value": "80238045",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "749748b0-2382-4c72-a475-040f0c119f86",
+                                    "name": "Category data",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/categories/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "categories",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "80238045",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "7ee7ef4e-81e1-484b-af24-0d97609a0db2",
+                                    "name": "Category not found",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/categories/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "categories",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "80238045",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Subcategories of a category by its ID",
+                            "id": "6387cd95-f120-4b4a-91b9-dc20286ead7c",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/categories/:id/subcategories",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "categories",
+                                        ":id",
+                                        "subcategories"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "dea36b35-9617-43f1-b1bd-798fca0f5caa",
+                                            "key": "id",
+                                            "value": "80238045",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "4f142cf7-d648-4d24-9724-aa3812a169ae",
+                                    "name": "Subcategories",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/categories/:id/subcategories",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "categories",
+                                                ":id",
+                                                "subcategories"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "80238045",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "e21c590a-57e6-4b54-afc2-55aa1cb2c421",
+                                    "name": "Category not found",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/categories/:id/subcategories",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "categories",
+                                                ":id",
+                                                "subcategories"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "80238045",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "id": "ba378e27-0c40-4a69-9a8b-25b91e9bbfcd"
+                },
+                {
+                    "name": "List Categories",
+                    "id": "e71cd398-eb34-4770-9d02-ceca2ddc5ab6",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/categories",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "categories"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "388f5fb6-1bf3-43bc-818e-f15b26aa2dfc",
+                            "name": "Categories listed",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "description": "Added as a part of security scheme: basic",
+                                        "key": "Authorization",
+                                        "value": "Basic <credentials>"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/categories",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "categories"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "id": "f748c7f8-9358-45a6-804a-5c4d9d041540"
+        },
+        {
+            "name": "events",
+            "item": [
+                {
+                    "name": "{id}",
+                    "item": [
+                        {
+                            "name": "Get Event",
+                            "id": "ce07253e-afdd-420f-a2bd-d4af5e352cef",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/events/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "events",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "4ed9a7aa-e58a-45c6-9db6-a20875582047",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "7a5850a9-c7d5-411a-b3ed-12c5a725fe7c",
+                                    "name": "Event data",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/events/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "events",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "ac340c79-0448-4d1e-958e-22db4a1c6b5e",
+                                    "name": "Event not found",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/events/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "events",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update Event",
+                            "id": "55507db5-048e-4bfa-92b3-6024f84cbe92",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"event\": {\n    \"id\": 1,\n    \"title\": \"Partido de fútbol\",\n    \"description\": \"Un partido de fútbol amistoso entre los del barrio\",\n    \"categories\": [\n      1,\n      5\n    ],\n    \"organizer\": 1\n  }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/events/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "events",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "ee10f54d-3d50-4d3e-8e4d-1ffbe6b67fce",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "3040170f-e1f6-479d-b45d-f713a7e39135",
+                                    "name": "Event updated",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"event\": {\n    \"id\": 1,\n    \"title\": \"Partido de fútbol\",\n    \"description\": \"Un partido de fútbol amistoso entre los del barrio\",\n    \"categories\": [\n      1,\n      5\n    ],\n    \"organizer\": 1\n  }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/events/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "events",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "6411ea44-9e62-41e1-8ac0-27a34f2140da",
+                                    "name": "Required fields not found",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"event\": {\n    \"id\": 1,\n    \"title\": \"Partido de fútbol\",\n    \"description\": \"Un partido de fútbol amistoso entre los del barrio\",\n    \"categories\": [\n      1,\n      5\n    ],\n    \"organizer\": 1\n  }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/events/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "events",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Bad Request",
+                                    "code": 400,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "28c8c5fc-2d6e-4c6e-87b1-623f1762ac86",
+                                    "name": "Event id not found",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"event\": {\n    \"id\": 1,\n    \"title\": \"Partido de fútbol\",\n    \"description\": \"Un partido de fútbol amistoso entre los del barrio\",\n    \"categories\": [\n      1,\n      5\n    ],\n    \"organizer\": 1\n  }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/events/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "events",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Delete Event",
+                            "id": "c9b12930-42a3-401e-9896-9824825bd6b8",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"password\": \"anotherpassword123\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/events/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "events",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "00b16ef9-82b6-4142-85ab-8bbe25d7e831",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "fc1f33a2-d1cf-49bd-8ba5-f2b5c50c88b5",
+                                    "name": "Event removed",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/events/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "events",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Enroll User",
+                            "id": "a67a3a32-8106-4fc9-a47a-4752c8b02cc5",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"userId\": 1\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/events/:id/enroll",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "events",
+                                        ":id",
+                                        "enroll"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "be21f413-3c45-47e1-8285-a95acfe13f5a",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "dfdbb382-5042-456f-b8f6-30702de379b4",
+                                    "name": "User enrolled",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "description": "Added as a part of security scheme: basic",
+                                                "key": "Authorization",
+                                                "value": "Basic <credentials>"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"password\": \"anotherpassword123\",\n  \"userId\": 1\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/events/:id/enroll",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "events",
+                                                ":id",
+                                                "enroll"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "1",
+                                                    "description": "(Required) "
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "id": "42c89daa-75c6-4ffb-b01c-51b03b690139"
+                },
+                {
+                    "name": "List Events",
+                    "id": "146aa664-4f32-4396-aefc-0bf2bc7cd322",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/events",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "events"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "ef1f34c9-dfb3-4a74-9374-66ef0f844dd7",
+                            "name": "Event list",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "description": "Added as a part of security scheme: basic",
+                                        "key": "Authorization",
+                                        "value": "Basic <credentials>"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/events",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "events"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Register Event",
+                    "id": "0b74b708-7bbd-44b5-aedf-d84031b6eb23",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Event title\",\n  \"description\": \"Event description\",\n  \"categories\": [\n    1,\n    2,\n    3,\n    4\n  ],\n  \"organizer\": 1\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/events",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "events"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "6623a73e-5310-4d67-9b22-bf975adb321b",
+                            "name": "Event registered",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "description": "Added as a part of security scheme: basic",
+                                        "key": "Authorization",
+                                        "value": "Basic <credentials>"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"title\": \"Event title\",\n  \"description\": \"Event description\",\n  \"categories\": [\n    1,\n    2,\n    3,\n    4\n  ],\n  \"organizer\": 1\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/events",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "events"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        },
+                        {
+                            "id": "db6b5328-1e17-4eef-ae5a-89a1a4c647bd",
+                            "name": "User or category not found",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "description": "Added as a part of security scheme: basic",
+                                        "key": "Authorization",
+                                        "value": "Basic <credentials>"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"title\": \"Event title\",\n  \"description\": \"Event description\",\n  \"categories\": [\n    1,\n    2,\n    3,\n    4\n  ],\n  \"organizer\": 1\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/events",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "events"
+                                    ]
+                                }
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "id": "5e212cc1-29f5-441b-8c11-014159c13290"
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "username",
+                "value": "<Basic Auth Username>",
+                "type": "string"
+            },
+            {
+                "key": "password",
+                "value": "<Basic Auth Password>",
+                "type": "string"
+            }
+        ]
+    },
+    "variable": [
+        {
+            "id": "b2215bf2-544d-453c-9cc6-9ad51daf8404",
+            "key": "baseUrl",
+            "value": "localhost:8080",
+            "type": "string"
+        }
+    ]
+}
